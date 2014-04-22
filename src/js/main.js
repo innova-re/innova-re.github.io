@@ -22,7 +22,7 @@
 		};
 
 		loadContent('#navbar', 'navbar.html');
-		loadContent('#main', 'home.html');
+		loadContent('#main', 'main.html');
 		$('#navbar.navbar').on('click', onHashChange);
 	});
 })(jQuery, setTimeout);
