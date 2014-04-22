@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/main.css">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -37,6 +38,8 @@
         <?php include_once("src/templates/sidebar.html") ?>
 
         <?php include_once("src/templates/main.html") ?>
+
+        <?php include_once("src/templates/modal.html") ?>
 
       </div>
     </div>
