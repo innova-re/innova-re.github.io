@@ -16,6 +16,6 @@
 		loadContent('#navbar', 'navbar.html');
 		loadContent('#main', 'main.html');
 		loadContent('#sidebar', 'sidebar.html');
-		loadContent('#modal', 'modal.html');
+		// loadContent('#modal', 'modal.html');
 	});
 })(jQuery, setTimeout);
