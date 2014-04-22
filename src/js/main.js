@@ -4,6 +4,7 @@
 
 	$(function () {
 
+		// asynchronous load
 		var origin = "src/templates/";
 		var loadContent = function (selector, url) {
 			$.ajax({
@@ -12,10 +13,11 @@
 				$(selector).html(content);
 			});
 		};
-
 		loadContent('#navbar', 'navbar.html');
 		loadContent('#main', 'main.html');
 		loadContent('#sidebar', 'sidebar.html');
 		loadContent('#my-modal', 'modal.html');
+		loadContent('#modal-login', 'modal-login.html');
+
 	});
 })(jQuery, setTimeout);
