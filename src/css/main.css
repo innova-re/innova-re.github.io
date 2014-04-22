@@ -5,3 +5,8 @@
 .modal-body {
 	height: 100px;
 }
+
+.main {
+	float: right;
+	margin-top:35px;
+}
