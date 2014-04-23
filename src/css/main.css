@@ -9,14 +9,11 @@
 .main {
 	float: right;
 	margin-top:35px;
-}
-
-.carousel.slide {
-	margin-left: 200px;
+	margin-left: 220px;
 }
 
 @media (max-width: 800px) {
-  .carousel.slide {
+  #main {
     margin-left: 0;
   }
   .sidebar {
