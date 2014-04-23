@@ -28,7 +28,11 @@
 		loadContent('#modal-servizi', 'modal-servizi.html', function () {
 			$('.js-search-services').click(function (event) {
 				event.preventDefault();
-				loadContent('#main', 'services.html');
+				loadContent('#main', 'services.html', function () {
+					$('table tr').click(function () {
+						console.log(this);
+					})
+				});
 				$('#modal-servizi').modal('hide');
 			})
 		});
