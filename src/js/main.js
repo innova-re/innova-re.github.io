@@ -11,6 +11,10 @@
 				url: origin + url
 			}).done(function(content) {
 				$(selector).html(content);
+				/* TODO the following shold be done to the end of all asynchronous requests */
+				$('form').click(function (event) {
+					event.preventDefault();
+				});
 			});
 		};
 		loadContent('#navbar', 'navbar.html');
