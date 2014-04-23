@@ -16,11 +16,7 @@
 				}
 			});
 		};
-		loadContent('#navbar', 'navbar.html', function () {
-			$('form').click(function (event) {
-				event.preventDefault();
-			});
-		});
+
 		loadContent('#main', 'main.html');
 		loadContent('#sidebar', 'sidebar.html');
 		loadContent('#my-modal', 'modal.html');
