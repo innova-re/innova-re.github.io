@@ -6,22 +6,32 @@
 
 		// asynchronous load
 		var origin = "src/templates/";
-		var loadContent = function (selector, url) {
+		var loadContent = function (selector, url, callback) {
 			$.ajax({
 				url: origin + url
 			}).done(function(content) {
 				$(selector).html(content);
-				/* TODO the following shold be done to the end of all asynchronous requests */
-				$('form').click(function (event) {
-					event.preventDefault();
-				});
+				if(callback) {
+					callback();
+				}
 			});
 		};
-		loadContent('#navbar', 'navbar.html');
+		loadContent('#navbar', 'navbar.html', function () {
+			$('form').click(function (event) {
+				event.preventDefault();
+			});
+		});
 		loadContent('#main', 'main.html');
 		loadContent('#sidebar', 'sidebar.html');
 		loadContent('#my-modal', 'modal.html');
 		loadContent('#modal-login', 'modal-login.html');
+		loadContent('#modal-servizi', 'modal-servizi.html', function () {
+			$('.js-search-services').click(function (event) {
+				event.preventDefault();
+				loadContent('#main', 'services.html');
+				$('#modal-servizi').modal('hide');
+			})
+		});
 
 	});
 })(jQuery, setTimeout);
