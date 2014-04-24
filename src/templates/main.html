@@ -1,10 +1,12 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" ng-repeat="iframe in iframes" data-slide-to="{{ iframe.id }}" class=""></li>
+    <li data-target="#carousel-example-generic" ng-repeat="image in carouselImages" data-slide-to="{{ image.id }}" class=""></li>
   </ol>
   <div class="carousel-inner">
-    <div class="{{ iframe.class }}" ng-repeat="iframe in iframes">
-      <iframe ng-src="{{ iframe.src }}" style="border: 0; width:820px; height:500px;"></iframe>
+    <div class="{{ image.class }}" ng-repeat="image in carouselImages">
+      <a href="{{ image.href }}" target="_">
+        <img src="{{ image.src }}" style="border: 0; width:820px; height:500px;">
+      </a>
     </div>
   </div>
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
