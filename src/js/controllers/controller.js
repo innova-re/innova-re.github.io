@@ -155,6 +155,7 @@ innovareApp.controller('instrumentsController', function ($scope) {
 				model: 'Axiovert 200, Carl Zeiss S.p.A.'
 			}
 		];
+		// TODO Remove duplicate code.
 		$scope.categories = [
 			{
 				name: 'Docente/Ricercatore'
