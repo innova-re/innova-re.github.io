@@ -6,7 +6,7 @@ innovareApp.controller('servicesMain', function ($scope, $sce) {
 
     function init() {
     	// TODO add other iframes from "Chiara Slides"
-		$scope.carouselImages = [
+    	$scope.carouselImages = [
     		{
     			id: 1,
     			src: 'src/images/carousel-sardegna-ricerca.png',
