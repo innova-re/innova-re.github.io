@@ -6,21 +6,18 @@ innovareApp.controller('servicesMain', function ($scope, $sce) {
 
     function init() {
     	// TODO add other iframes from "Chiara Slides"
-    	$scope.iframes = [
-    		{
-    			id: 0,
-    			src: $sce.trustAsResourceUrl('http://www.sardegnaricerche.it/index.php?xsl=370&s=254294&v=2&c=3134&nc=1&qr=1&qp=2&vd=2&fa=1&t=3'),
-    			'class': 'item active' 
-    		},
+		$scope.carouselImages = [
     		{
     			id: 1,
-    			src: $sce.trustAsResourceUrl('http://people.unica.it/liaisonoffice/2014/04/02/entro-il-905-le-domande-per-i-progetti-pilota-progetti-di-sviluppo-congiunti-universita-impresa/'),
-    			'class': 'item'
+    			src: 'src/images/carousel-sardegna-ricerca.png',
+    			'class': 'item active',
+    			href: 'http://www.sardegnaricerche.it/'
     		},
     		{
     			id: 2,
-    			src: $sce.trustAsResourceUrl('http://www.ilo.uniss.it/art/bandi/bando-transnazionale-bionh-per-progetti-di-ricerca-riguardanti-biomarcatori-nel-settore-della-nutrizione-e-della-salute_1480.html'),
-    			'class': 'item'
+    			src: 'src/images/carousel-IndustrialLiaisonOffice.png',
+    			'class': 'item',
+    			href: 'http://people.unica.it/liaisonoffice/progetti/progetto-innova-re/'
     		}
     	]
     }
