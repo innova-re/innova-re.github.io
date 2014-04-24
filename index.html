@@ -52,6 +52,30 @@
         <div class="modal fade" id="modal-servizi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         </div>
 
+        <!-- Modal instruments/equipments -->
+        <!-- TODO this modal should be moved somewhere else (in templates)-->
+        <div class="modal fade" id="modal-instruments" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form form-horizontal">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Parola chiave</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Inserire una parola chiave">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href="#instruments" class="btn btn-primary" >Cerca</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -68,6 +92,6 @@
     <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src="src/js/app.js"></script>
     <script src="src/js/main.js"></script>
-    <script src="src/js/controllers/sidebarController.js"></script>
+    <script src="src/js/controllers/controller.js"></script>
   </body>
 </html>

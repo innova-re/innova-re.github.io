@@ -118,3 +118,76 @@ innovareApp.controller('servicesController', function ($scope) {
 
     $('#modal-servizi').modal('hide');
 });
+
+
+innovareApp.controller('instrumentsController', function ($scope) {
+
+    init();
+
+    function init() {
+    	$scope.instruments = [
+			{
+				id: 1, 
+				name: 'Microscopio stereoscopico a fluorescenza', 
+				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
+				year: '2011',
+				model: 'Axiovert 200, Carl Zeiss S.p.A.'
+			},
+			{
+				id: 2, 
+				name: 'Microscopio stereoscopico a fluorescenza', 
+				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
+				year: '2011',
+				model: 'Axiovert 200, Carl Zeiss S.p.A.'
+			},
+			{
+				id: 3, 
+				name: 'Microscopio stereoscopico a fluorescenza', 
+				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
+				year: '2011',
+				model: 'Axiovert 200, Carl Zeiss S.p.A.'
+			},
+			{
+				id: 4, 
+				name: 'Microscopio stereoscopico a fluorescenza', 
+				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
+				year: '2011',
+				model: 'Axiovert 200, Carl Zeiss S.p.A.'
+			}
+		];
+		// TODO Remove duplicate code.
+		$scope.categories = [
+			{
+				name: 'Docente/Ricercatore'
+			},
+			{
+				name: 'Dottorando'
+			},
+			{
+				name: 'Assegnista/Borsista'
+			},
+			{
+				name: 'Studente'
+			},
+			{
+				name: 'Professionista'
+			},
+			{
+				name: 'Impresa'
+			},
+			{
+				name: 'Altro'
+			}
+		];
+		$scope.deliveryService = [
+			{
+				name: 'Con l\'ausilio del tecnico di laboratorio'
+			},
+			{
+				name: 'Senza l\'ausilio del tecnico di laboratorio'
+			}
+		];
+    }
+
+    $('#modal-instruments').modal('hide');
+});
