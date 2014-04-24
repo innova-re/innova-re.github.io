@@ -16,6 +16,21 @@ innovareApp.config( function ($stateProvider) {
 	            }
 	        }
 	    })
+	    .state('instruments', {
+	        url: '/instruments',
+	        views: {
+	            'navbar': {
+	                templateUrl: 'src/templates/navbar.html'
+	            },
+	            'sidebar': {
+	            	templateUrl: 'src/templates/sidebar.html'
+	            },
+	            'main': {
+	            	templateUrl: 'src/templates/instruments.html',
+	            	controller: 'instrumentsController'
+	            }
+	        }
+	    })
 	    .state('index', {
 	        url: '*path',
 	        views: {
