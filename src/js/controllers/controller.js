@@ -32,48 +32,14 @@ innovareApp.controller('sidebarController', function ($scope) {
     }
 });
 
-innovareApp.controller('servicesController', function ($scope) {
+innovareApp.controller('servicesController', function ($scope, $http) {
 
     init();
 
     function init() {
-    	$scope.services = [
-			{
-				id: 1, 
-				name: 'Misure XRD', 
-				description: 'XRD per stimare le dimensioni delle nanoparticelle.',
-				struments: 'Difrattrometro a raggi-X',
-				note: 'La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali.'
-			},
-			{
-				id: 2, 
-				name: 'Misure XRD', 
-				description: 'XRD per stimare le dimensioni delle nanoparticelle.',
-				struments: 'Difrattrometro a raggi-X',
-				note: 'La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali.'
-			},
-			{
-				id: 3, 
-				name: 'Misure XRD', 
-				description: 'XRD per stimare le dimensioni delle nanoparticelle.',
-				struments: 'Difrattrometro a raggi-X',
-				note: 'La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali.'
-			},
-			{
-				id: 4, 
-				name: 'Misure XRD', 
-				description: 'XRD per stimare le dimensioni delle nanoparticelle.',
-				struments: 'Difrattrometro a raggi-X',
-				note: 'La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali.'
-			},
-			{
-				id: 5, 
-				name: 'Misure XRD', 
-				description: 'XRD per stimare le dimensioni delle nanoparticelle.',
-				struments: 'Difrattrometro a raggi-X',
-				note: 'La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali.'
-			}
-		];
+    	$http.get('src/fixtures/services.json').success(function (data) {
+          $scope.services = data;
+        });
 		$scope.categories = [
 			{
 				name: 'Docente/Ricercatore'
