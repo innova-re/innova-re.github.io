@@ -1,3 +1,8 @@
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <input ng-model="query" type="text" class="form-control" id="exampleInputEmail2" placeholder="Cerca un servizio">
+  </div></form>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -10,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="service in services">
+    <tr ng-repeat="service in services | filter:query">
       <td>{{ service.id }}</td>
       <td>{{ service.name }}</td>
       <td>{{ service.description }}</td>

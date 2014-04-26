@@ -8,10 +8,10 @@
 	},
 	{
 		"id": 2,
-		"name": "Misure XRD",
-		"description": "XRD per stimare le dimensioni delle nanoparticelle.",
-		"struments": "Difrattrometro a raggi-X",
-		"note": "La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali."
+		"name": "Misure di ammettenza a 20 Hz÷1 MHz",
+		"description": "Misure di ammettenza a 20 Hz÷1 MHz anche in funzione della temperatura.",
+		"struments": "Misuratore LCR: modello HP 4284",
+		"note": "Accesso da parte del personale di Laboratorio con eventuale partecipazione e/o presenza dell'utente esterno."
 	},
 	{
 		"id": 3,
