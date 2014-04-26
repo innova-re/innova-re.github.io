@@ -1,158 +1,69 @@
-innovareApp.controller('servicesMain', function ($scope, $sce) {
+innovareApp.controller('servicesMain', function ($scope, $http) {
 
 	// TODO fix the iframes size
+    var init = function() {
+    	// TODO add other iframes from "Chiara Slides"
+    	$http.get('src/fixtures/carousel.json').success(function (data) {
+          $scope.carouselImages = data;
+        });
+    };
 
     init();
 
-    function init() {
-    	// TODO add other iframes from "Chiara Slides"
-    	$scope.carouselImages = [
-    		{
-    			id: 1,
-    			src: 'src/images/carousel-sardegna-ricerca.png',
-    			'class': 'item active',
-    			href: 'http://www.sardegnaricerche.it/'
-    		},
-    		{
-    			id: 2,
-    			src: 'src/images/carousel-IndustrialLiaisonOffice.png',
-    			'class': 'item',
-    			href: 'http://people.unica.it/liaisonoffice/progetti/progetto-innova-re/'
-    		}
-    	]
-    }
 });
 
 innovareApp.controller('sidebarController', function ($scope) {
-
-    init();
-
-    function init() {
-        console.log($scope)
-    }
 });
 
+// TODO For the minification you need to provide an array 
 innovareApp.controller('servicesController', function ($scope, $http) {
 
     init();
 
     function init() {
     	$http.get('src/fixtures/services.json').success(function (data) {
-          $scope.services = data;
+        	$scope.services = data;
         });
-		$scope.categories = [
-			{
-				name: 'Docente/Ricercatore'
-			},
-			{
-				name: 'Dottorando'
-			},
-			{
-				name: 'Assegnista/Borsista'
-			},
-			{
-				name: 'Studente'
-			},
-			{
-				name: 'Professionista'
-			},
-			{
-				name: 'Impresa'
-			},
-			{
-				name: 'Altro'
-			}
-		];
-		$scope.deliveryService = [
-			{
-				name: 'Con l\'ausilio del tecnico di laboratorio'
-			},
-			{
-				name: 'Senza l\'ausilio del tecnico di laboratorio'
-			}
-		];
+    	$http.get('src/fixtures/reserve.json').success(function (data) {
+    		// TODO should I rewrite the data to get fixtures
+    		$scope.categories = data[0].categories;
+        });
+        $http.get('src/fixtures/reserve.json').success(function (data) {
+    		// TODO should I rewrite the data to get fixtures
+    		$scope.deliveryService = data[1].deliveryService;
+        });
     }
 
     var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	 
 	var checkin = $('#dpd1').datepicker({
-	  onRender: function (date) {
-	    return date.valueOf() < now.valueOf() ? 'disabled' : '';
-	  }
+		onRender: function (date) {
+			return date.valueOf() < now.valueOf() ? 'disabled' : '';
+		}
 	}).data('datepicker');
 
     $('#modal-servizi').modal('hide');
 });
 
 
-innovareApp.controller('instrumentsController', function ($scope) {
+innovareApp.controller('instrumentsController', function ($scope, $http) {
 
     init();
 
     function init() {
-    	$scope.instruments = [
-			{
-				id: 1, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			},
-			{
-				id: 2, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			},
-			{
-				id: 3, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			},
-			{
-				id: 4, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			}
-		];
-		// TODO Remove duplicate code.
-		$scope.categories = [
-			{
-				name: 'Docente/Ricercatore'
-			},
-			{
-				name: 'Dottorando'
-			},
-			{
-				name: 'Assegnista/Borsista'
-			},
-			{
-				name: 'Studente'
-			},
-			{
-				name: 'Professionista'
-			},
-			{
-				name: 'Impresa'
-			},
-			{
-				name: 'Altro'
-			}
-		];
-		$scope.deliveryService = [
-			{
-				name: 'Con l\'ausilio del tecnico di laboratorio'
-			},
-			{
-				name: 'Senza l\'ausilio del tecnico di laboratorio'
-			}
-		];
+    	$http.get('src/fixtures/instruments.json').success(function (data) {
+          $scope.instruments = data;
+        });
+        $http.get('src/fixtures/reserve.json').success(function (data) {
+    		// TODO should I rewrite the data to get fixtures
+    		$scope.categories = data[0].categories;
+        });
+        $http.get('src/fixtures/reserve.json').success(function (data) {
+    		// TODO should I rewrite the data to get fixtures
+    		$scope.deliveryService = data[1].deliveryService;
+        });
+
     }
 
     $('#modal-instruments').modal('hide');

@@ -1,0 +1,29 @@
+[
+	{
+		"id": 1, 
+		"name": "Microscopio stereoscopico a fluorescenza", 
+		"site": "Via Aurelio Nicolodi, 106, 09123 Cagliari",
+		"year": "2011",
+		"model": "Axiovert 200, Carl Zeiss S.p.A."
+	},	
+	{
+		"id": 2, 
+		"name": "Microscopio stereoscopico a fluorescenza", 
+		"site": "Via Aurelio Nicolodi, 106, 09123 Cagliari",
+		"year": "2011",
+		"model": "Axiovert 200, Carl Zeiss S.p.A."
+	},	{
+		"id": 3, 
+		"name": "Microscopio stereoscopico a fluorescenza", 
+		"site": "Via Aurelio Nicolodi, 106, 09123 Cagliari",
+		"year": "2011",
+		"model": "Axiovert 200, Carl Zeiss S.p.A."
+	},	
+	{
+		"id": 4, 
+		"name": "Microscopio stereoscopico a fluorescenza", 
+		"site": "Via Aurelio Nicolodi, 106, 09123 Cagliari",
+		"year": "2011",
+		"model": "Axiovert 200, Carl Zeiss S.p.A."
+	}
+]

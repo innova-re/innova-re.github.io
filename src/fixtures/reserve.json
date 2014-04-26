@@ -1,0 +1,37 @@
+[
+	{
+		"categories": [
+			{
+				"name": "Docente/Ricercatore"
+			},
+			{
+				"name": "Dottorando"
+			},
+			{
+				"name": "Assegnista/Borsista"
+			},
+			{
+				"name": "Studente"
+			},
+			{
+				"name": "Professionista"
+			},
+			{
+				"name": "Impresa"
+			},
+			{
+				"name": "Altro"
+			}
+		]
+	},
+	{
+		"deliveryService": [
+			{
+				"name": "Con l'ausilio del tecnico di laboratorio"
+			},
+			{
+				"name": "Senza l'ausilio del tecnico di laboratorio"
+			}
+		]
+	}
+]
