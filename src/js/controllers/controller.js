@@ -86,41 +86,14 @@ innovareApp.controller('servicesController', function ($scope, $http) {
 });
 
 
-innovareApp.controller('instrumentsController', function ($scope) {
+innovareApp.controller('instrumentsController', function ($scope, $http) {
 
     init();
 
     function init() {
-    	$scope.instruments = [
-			{
-				id: 1, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			},
-			{
-				id: 2, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			},
-			{
-				id: 3, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			},
-			{
-				id: 4, 
-				name: 'Microscopio stereoscopico a fluorescenza', 
-				site: 'Via Aurelio Nicolodi, 106, 09123 Cagliari',
-				year: '2011',
-				model: 'Axiovert 200, Carl Zeiss S.p.A.'
-			}
-		];
+    	$http.get('src/fixtures/instruments.json').success(function (data) {
+          $scope.instruments = data;
+        });
 		// TODO Remove duplicate code.
 		$scope.categories = [
 			{
