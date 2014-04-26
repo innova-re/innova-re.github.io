@@ -1,4 +1,4 @@
-innovareApp.controller('servicesMain', function ($scope, $sce) {
+innovareApp.controller('servicesMain', function ($scope, $http) {
 
 	// TODO fix the iframes size
 
@@ -6,20 +6,9 @@ innovareApp.controller('servicesMain', function ($scope, $sce) {
 
     function init() {
     	// TODO add other iframes from "Chiara Slides"
-    	$scope.carouselImages = [
-    		{
-    			id: 1,
-    			src: 'src/images/carousel-sardegna-ricerca.png',
-    			'class': 'item active',
-    			href: 'http://www.sardegnaricerche.it/'
-    		},
-    		{
-    			id: 2,
-    			src: 'src/images/carousel-IndustrialLiaisonOffice.png',
-    			'class': 'item',
-    			href: 'http://people.unica.it/liaisonoffice/progetti/progetto-innova-re/'
-    		}
-    	]
+    	$http.get('src/fixtures/carousel.json').success(function (data) {
+          $scope.carouselImages = data;
+        });
     }
 });
 
