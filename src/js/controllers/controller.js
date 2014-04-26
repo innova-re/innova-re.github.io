@@ -15,6 +15,7 @@ innovareApp.controller('servicesMain', function ($scope, $http) {
 innovareApp.controller('sidebarController', function ($scope) {
 });
 
+// TODO For the minification you need to provide an array 
 innovareApp.controller('servicesController', function ($scope, $http) {
 
     init();
