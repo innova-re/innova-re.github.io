@@ -35,13 +35,14 @@ innovareApp.controller('servicesCtrl', function ($scope, $http) {
         });
     }
 
-    $scope.addService = function() {
-      $scope.services.push($scope.enteredName);
-    };
-
     $scope.onAddService = function(obj) {
         $scope.services.push(obj);
         $('#modal-add-service').modal('hide');
+    }
+
+    $scope.editService = function(id) {
+    	console.log(id, $scope.services[id]);
+        $('#modal-add-service').modal();
     }
 
     var nowTemp = new Date();
