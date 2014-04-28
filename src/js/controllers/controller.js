@@ -39,8 +39,9 @@ innovareApp.controller('servicesCtrl', function ($scope, $http) {
       $scope.services.push($scope.enteredName);
     };
 
-    $scope.onSubmit = function(obj) {
+    $scope.onAddService = function(obj) {
         $scope.services.push(obj);
+        $('#modal-add-service').modal('hide');
     }
 
     var nowTemp = new Date();
