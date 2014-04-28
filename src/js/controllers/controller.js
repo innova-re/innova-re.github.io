@@ -6,6 +6,7 @@ innovareApp.controller('servicesMain', function ($scope, $http) {
     	$http.get('src/fixtures/carousel.json').success(function (data) {
           $scope.carouselImages = data;
         });
+        $scope.sortField = 'name';
     };
 
     init();
@@ -16,7 +17,7 @@ innovareApp.controller('sidebarController', function ($scope) {
 });
 
 // TODO For the minification you need to provide an array 
-innovareApp.controller('servicesController', function ($scope, $http) {
+innovareApp.controller('servicesCtrl', function ($scope, $http) {
 
     init();
 
@@ -32,6 +33,16 @@ innovareApp.controller('servicesController', function ($scope, $http) {
     		// TODO should I rewrite the data to get fixtures
     		$scope.deliveryService = data[1].deliveryService;
         });
+    }
+
+    $scope.onAddService = function(obj) {
+        $scope.services.push(obj);
+        $('#modal-add-service').modal('hide');
+    }
+
+    $scope.editService = function(id) {
+    	console.log(id, $scope.services[id]);
+        $('#modal-add-service').modal();
     }
 
     var nowTemp = new Date();

@@ -1,30 +1,84 @@
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <input ng-model="query" type="text" class="form-control" id="exampleInputEmail2" placeholder="Cerca un servizio">
+  </div>
+  <button type="button" class="btn btn-default btn" data-toggle="modal" data-target="#modal-add-service"><i class="fa fa-plus"></i> Aggiungi un servizio
+  </button>
+</form>
+
+
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th>#</th>
-      <th>Nome servizio</th>
+      <th><a href="" ng-click="sortField ='name'; reverse = !reverse">Nome servizio</a></th>
       <th>Descrizione servizio</th>
       <th>Strumenti utilizzati</th>
       <th>Note</th>
-      <th>Prenota</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="service in services">
+    <tr ng-repeat="service in services | filter:query | orderBy:sortField:reverse">
       <td>{{ service.id }}</td>
       <td>{{ service.name }}</td>
       <td>{{ service.description }}</td>
       <td>{{ service.struments }}</td>
       <td>{{ service.note }}</td>
-      <td><button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal-book">
-        <span class="glyphicon glyphicon-shopping-cart"></span>
-      </button></td>
+      <td>
+        <button type="button" class="btn btn-default btn" data-toggle="modal" data-target="#modal-book">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-default btn">
+          <span class="glyphicon glyphicon-pencil" ng-click="editService(service.id)"></span>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<!-- Modal -->
-<!-- Modal -->
+<!-- Modal add-service -->
+<div class="modal fade" id="modal-add-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Aggiungi un servizio</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form form-horizontal" ng-submit="onAddService(newItem)">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nome servizio</label>
+            <input type="text" class="form-control" placeholder="Inserire il nome del servizio" required ng-model="newItem.name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Descrizione servizio</label>
+            <input type="text" class="form-control" placeholder="Inserire la descrizione del servizio" required ng-model="newItem.description">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Strumenti utilizzati</label>
+            <input type="text" class="form-control" placeholder="Inserire gli strumenti utilizzati" required ng-model="newItem.struments">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Note</label>
+            <input type="text" class="form-control" placeholder="Inserire delle note" required ng-model="newItem.note">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+<!--       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Prenota</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal reserve service-->
 <div class="modal fade" id="modal-book" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

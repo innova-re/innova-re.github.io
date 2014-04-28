@@ -12,7 +12,7 @@ innovareApp.config( function ($stateProvider) {
 	            },
 	            'main': {
 	            	templateUrl: 'src/templates/services.html',
-	            	controller: 'servicesController'
+	            	controller: 'servicesCtrl'
 	            }
 	        }
 	    })
