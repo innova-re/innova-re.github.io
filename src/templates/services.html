@@ -16,7 +16,8 @@
       <th>Descrizione servizio</th>
       <th>Strumenti utilizzati</th>
       <th>Note</th>
-      <th>Prenota</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -26,9 +27,16 @@
       <td>{{ service.description }}</td>
       <td>{{ service.struments }}</td>
       <td>{{ service.note }}</td>
-      <td><button type="button" class="btn btn-default btn" data-toggle="modal" data-target="#modal-book">
-        <span class="glyphicon glyphicon-shopping-cart"></span>
-      </button></td>
+      <td>
+        <button type="button" class="btn btn-default btn" data-toggle="modal" data-target="#modal-book">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-default btn">
+          <span class="glyphicon glyphicon-pencil" ng-click="editService(service.id)"></span>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
