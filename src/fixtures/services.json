@@ -15,21 +15,21 @@
 	},
 	{
 		"id": 3,
-		"name": "Misure XRD",
+		"name": "Misuratore di portata",
 		"description": "XRD per stimare le dimensioni delle nanoparticelle.",
 		"struments": "Difrattrometro a raggi-X",
 		"note": "La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali."
 	},
 	{
 		"id": 4,
-		"name": "Misure XRD",
+		"name": "Braccio di Misura (Scanner 3D)",
 		"description": "XRD per stimare le dimensioni delle nanoparticelle.",
 		"struments": "Difrattrometro a raggi-X",
 		"note": "La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali."
 	},
 	{
 		"id": 5,
-		"name": "Misure XRD",
+		"name": "Misuratore da banco Aqualab",
 		"description": "XRD per stimare le dimensioni delle nanoparticelle.",
 		"struments": "Difrattrometro a raggi-X",
 		"note": "La diffrattometria a raggi-X (XRD) viene usata per determinare le fasi cristalline contenute nei minerali."
