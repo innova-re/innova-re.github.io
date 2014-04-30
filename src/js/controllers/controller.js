@@ -1,3 +1,16 @@
+var ModalInstanceCtrl = function ($scope, $modalInstance, service) {
+
+  $scope.service = service;
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};
+
 innovareApp.controller('servicesMain', function ($scope, $http) {
 
 	// TODO fix the iframes size
@@ -17,7 +30,7 @@ innovareApp.controller('sidebarController', function ($scope) {
 });
 
 // TODO For the minification you need to provide an array 
-innovareApp.controller('servicesCtrl', function ($scope, $http) {
+innovareApp.controller('servicesCtrl', function ($scope, $http, $modal, $log) {
 
     init();
 
@@ -34,6 +47,27 @@ innovareApp.controller('servicesCtrl', function ($scope, $http) {
     		$scope.deliveryService = data[1].deliveryService;
         });
     }
+
+	$scope.open = function (id) {
+
+		console.log(id, $scope.services[id]);
+
+		var modalInstance = $modal.open({
+			templateUrl: 'src/templates/modal-service-edit.html',
+			controller: ModalInstanceCtrl,
+			resolve: {
+				service: function () {
+				  return $scope.services[id];
+				}
+		}
+	});
+
+	modalInstance.result.then(function (selectedItem) {
+		$scope.selected = selectedItem;
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
 
     $scope.onAddService = function(obj) {
         $scope.services.push(obj);
