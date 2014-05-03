@@ -1,9 +1,9 @@
-<!-- Modal -->
+<!-- Modal Laboratori search -->
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <button type="button" class="close" ng-click="cancel()">&times;</button>
-      <h4 class="modal-title" id="myModalLabel">Cerca .... </h4>
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title" id="myModalLabel">Cerca laboratori </h4>
     </div>
     <div class="modal-body">
     <form role="form form-horizontal">
@@ -28,8 +28,8 @@
     </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal">Cerca</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+      <a ui-sref="laboratori" class="btn btn-primary" ng-click="ok()">Cerca</a>
     </div>
   </div>
 </div>
