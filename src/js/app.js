@@ -1,15 +1,23 @@
-var innovareApp = angular.module('innovareApp', ['ui.router']);
+var innovareApp = angular.module('innovareApp', [
+	'ui.router',
+	'ui.bootstrap'
+]);
+var navbarView = {
+    templateUrl: 'src/templates/navbar.html',
+	controller: 'navbarCtrl'
+};
+var sidebarView =  {
+	templateUrl: 'src/templates/sidebar.html',
+	controller: 'sidebarController'
+};
+
 innovareApp.config( function ($stateProvider) {
 	$stateProvider
 	    .state('services', {
 	        url: '/services',
 	        views: {
-	            'navbar': {
-	                templateUrl: 'src/templates/navbar.html'
-	            },
-	            'sidebar': {
-	            	templateUrl: 'src/templates/sidebar.html'
-	            },
+	            'navbar': navbarView,
+	            'sidebar': sidebarView,
 	            'main': {
 	            	templateUrl: 'src/templates/services.html',
 	            	controller: 'servicesCtrl'
@@ -19,28 +27,30 @@ innovareApp.config( function ($stateProvider) {
 	    .state('instruments', {
 	        url: '/instruments',
 	        views: {
-	            'navbar': {
-	                templateUrl: 'src/templates/navbar.html'
-	            },
-	            'sidebar': {
-	            	templateUrl: 'src/templates/sidebar.html'
-	            },
+	            'navbar':navbarView,
+	            'sidebar':sidebarView,
 	            'main': {
 	            	templateUrl: 'src/templates/instruments.html',
 	            	controller: 'instrumentsController'
 	            }
 	        }
 	    })
+	    .state('laboratori', {
+	        url: '/laboratori',
+	        views: {
+	            'navbar':navbarView,
+	            'sidebar':sidebarView,
+	            'main': {
+					templateUrl: 'src/templates/main.html',
+					controller: 'servicesMain'
+	            }
+	        }
+	    })
 	    .state('index', {
 	        url: '*path',
 	        views: {
-	            'navbar': {
-	                templateUrl: 'src/templates/navbar.html'
-	            },
-	            'sidebar': {
-	            	templateUrl: 'src/templates/sidebar.html',
-	            	controller: 'sidebarController'
-	            },
+	            'navbar':navbarView,
+	            'sidebar':sidebarView,
 	            'main': {
 	            	templateUrl: 'src/templates/main.html',
 	            	controller: 'servicesMain'

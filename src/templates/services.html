@@ -6,8 +6,6 @@
   </button>
 </form>
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -28,100 +26,15 @@
       <td>{{ service.struments }}</td>
       <td>{{ service.note }}</td>
       <td>
-        <button type="button" class="btn btn-default btn" data-toggle="modal" data-target="#modal-book">
-          <span class="glyphicon glyphicon-shopping-cart"></span>
+        <button type="button" class="btn btn-default btn">
+          <span class="glyphicon glyphicon-shopping-cart" ng-click="openBookModal(service.id - 1)"></span>
         </button>
       </td>
       <td>
         <button type="button" class="btn btn-default btn">
-          <span class="glyphicon glyphicon-pencil" ng-click="editService(service.id)"></span>
+          <span class="glyphicon glyphicon-pencil" ng-click="open(service.id - 1, 'modal-service-edit.html')"></span>
         </button>
       </td>
     </tr>
   </tbody>
 </table>
-
-<!-- Modal add-service -->
-<div class="modal fade" id="modal-add-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Aggiungi un servizio</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form form-horizontal" ng-submit="onAddService(newItem)">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome servizio</label>
-            <input type="text" class="form-control" placeholder="Inserire il nome del servizio" required ng-model="newItem.name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Descrizione servizio</label>
-            <input type="text" class="form-control" placeholder="Inserire la descrizione del servizio" required ng-model="newItem.description">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Strumenti utilizzati</label>
-            <input type="text" class="form-control" placeholder="Inserire gli strumenti utilizzati" required ng-model="newItem.struments">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Note</label>
-            <input type="text" class="form-control" placeholder="Inserire delle note" required ng-model="newItem.note">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-<!--       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Prenota</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-<!-- Modal reserve service-->
-<div class="modal fade" id="modal-book" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Prenota il servizio</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form form-horizontal">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Inserire il tuo nome">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Cognome</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Inserire il tuo cognome">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Telefono</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Inserire il tuo telefono 070-010203">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Categoria di appartenenza</label>
-            <select class="form-control">
-              <option ng-repeat="category in categories">{{ category.name }}</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Data di prenotazione</label>
-            <input class="form-control" type="text" class="span2" value="" id="dpd1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Erogazione servizio</label>
-            <select class="form-control">
-              <option ng-repeat="ds in deliveryService">{{ ds.name }}</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Prenota</button>
-      </div>
-    </div>
-  </div>
-</div>
