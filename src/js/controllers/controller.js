@@ -1,14 +1,30 @@
+// TODO move this controller outside from this file
 var ModalInstanceCtrl = function ($scope, $modalInstance, service) {
+	// reference http://plnkr.co/edit/WLJfs8axxMJ419N2osBY?p=preview
+	$scope.service = service;
 
-  $scope.service = service;
+	$scope.ok = function () {
+		// $modalInstance.close($scope.selected.item);
+		$modalInstance.close();
+	};
 
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+};
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
+var ModalBookCtrl = function ($scope, $modalInstance, categories, deliveryService) {
+	$scope.categories = categories;
+	$scope.deliveryService = deliveryService;
+
+	$scope.ok = function () {
+		// $modalInstance.close($scope.selected.item);
+		$modalInstance.close();
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
 };
 
 innovareApp.controller('servicesMain', function ($scope, $http) {
@@ -26,7 +42,44 @@ innovareApp.controller('servicesMain', function ($scope, $http) {
 
 });
 
-innovareApp.controller('sidebarController', function ($scope) {
+innovareApp.controller('navbarCtrl', function ($scope, $modal) {
+	// TODO you should move here the logic to open a new modal
+	// instead of using main.js
+
+	/* TODO change this name into editServiceModal */
+	$scope.open = function (templateFile) {
+		var modalInstance = $modal.open({
+			templateUrl: 'src/templates/' + templateFile,
+			controller: ModalInstanceCtrl,
+			resolve: {
+				// TODO can i get rid of the following code? 
+				service: function () {
+				  return true;
+				}
+			}
+		});
+	};
+
+});
+
+innovareApp.controller('sidebarController', function ($scope, $modal) {
+	// TODO you should move here the logic to open a new modal
+	// instead of using main.js
+
+	/* TODO change this name into editServiceModal */
+	$scope.open = function (templateFile) {
+		var modalInstance = $modal.open({
+			templateUrl: 'src/templates/' + templateFile,
+			controller: ModalInstanceCtrl,
+			resolve: {
+				// TODO can i get rid of the following code? 
+				service: function () {
+				  return true;
+				}
+			}
+		});
+	};
+
 });
 
 // TODO For the minification you need to provide an array 
@@ -48,22 +101,44 @@ innovareApp.controller('servicesCtrl', function ($scope, $http, $modal, $log) {
         });
     }
 
-	$scope.open = function (id) {
-
-		console.log(id, $scope.services[id]);
+    $scope.openBookModal = function (id) {
 
 		var modalInstance = $modal.open({
-			templateUrl: 'src/templates/modal-service-edit.html',
+			templateUrl: 'src/templates/modal-book.html',
+			controller: ModalBookCtrl,
+			resolve: {
+				categories: function () {
+					return $scope.categories;
+				},
+				deliveryService: function () {
+					return $scope.deliveryService;
+				}
+			}
+		});
+
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+
+    /* TODO change this name into editServiceModal */
+	$scope.open = function (id, template) {
+
+		var modalInstance = $modal.open({
+			templateUrl: 'src/templates/' + template,
 			controller: ModalInstanceCtrl,
 			resolve: {
 				service: function () {
+					console.log($scope.services[id])
 				  return $scope.services[id];
 				}
-		}
-	});
+			}
+		});
 
-	modalInstance.result.then(function (selectedItem) {
-		$scope.selected = selectedItem;
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
@@ -92,7 +167,7 @@ innovareApp.controller('servicesCtrl', function ($scope, $http, $modal, $log) {
 });
 
 
-innovareApp.controller('instrumentsController', function ($scope, $http) {
+innovareApp.controller('instrumentsController', function ($scope, $http, $modal, $log) {
 
     init();
 
@@ -110,6 +185,28 @@ innovareApp.controller('instrumentsController', function ($scope, $http) {
         });
 
     }
+
+    $scope.openBookModal = function (id) {
+
+		var modalInstance = $modal.open({
+			templateUrl: 'src/templates/modal-book.html',
+			controller: ModalBookCtrl,
+			resolve: {
+				categories: function () {
+					return $scope.categories;
+				},
+				deliveryService: function () {
+					return $scope.deliveryService;
+				}
+			}
+		});
+
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
 
     $('#modal-instruments').modal('hide');
 });
