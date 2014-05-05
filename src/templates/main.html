@@ -5,7 +5,7 @@
   <div class="carousel-inner">
     <div class="{{ image.class }}" ng-repeat="image in carouselImages">
       <a href="{{ image.href }}" target="_">
-        <img src="{{ image.src }}" style="border: 0; width:820px; height:500px;">
+        <img ng-src="src/images/{{ image.src }}" style="border: 0; width:820px; height:500px;" class="image-carousel">
       </a>
     </div>
   </div>
