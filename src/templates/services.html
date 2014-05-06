@@ -2,7 +2,7 @@
   <div class="form-group">
     <input ng-model="query" type="text" class="form-control" id="exampleInputEmail2" placeholder="Cerca un servizio">
   </div>
-  <button type="button" class="btn btn-default btn" data-toggle="modal" data-target="#modal-add-service"><i class="fa fa-plus"></i> Aggiungi un servizio
+  <button type="button" class="btn btn-default btn" ng-click="modalAddService()"><i class="fa fa-plus"></i> Aggiungi un servizio
   </button>
 </form>
 
@@ -32,7 +32,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-default btn">
-          <span class="glyphicon glyphicon-pencil" ng-click="open(service.id - 1, 'modal-service-edit.html')"></span>
+          <span class="glyphicon glyphicon-pencil" ng-click="modalEditService(service.id - 1)"></span>
         </button>
       </td>
     </tr>
