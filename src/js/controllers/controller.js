@@ -19,7 +19,6 @@ var modalAddServiceCtrl = function ($scope, $modalInstance, $log, service, servi
 	$scope.service = service;
 	$scope.services = services;
 	$scope.submit = function () {
-		// $modalInstance.close($scope.selected.item);
 		console.log($scope);
 		$scope.services.push(service);
 		$modalInstance.close();
