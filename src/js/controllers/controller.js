@@ -66,7 +66,7 @@ innovareApp.controller('navbarCtrl', function ($scope, $modal) {
 	$scope.open = function (templateFile) {
 		var modalInstance = $modal.open({
 			templateUrl: 'src/templates/' + templateFile,
-			controller: ModalInstanceCtrl,
+			controller: modalEditServiceCtrl,
 			resolve: {
 				// TODO can i get rid of the following code? 
 				service: function () {
@@ -86,7 +86,7 @@ innovareApp.controller('sidebarController', function ($scope, $modal) {
 	$scope.open = function (templateFile) {
 		var modalInstance = $modal.open({
 			templateUrl: 'src/templates/' + templateFile,
-			controller: ModalInstanceCtrl,
+			controller: modalEditServiceCtrl,
 			resolve: {
 				// TODO can i get rid of the following code? 
 				service: function () {
