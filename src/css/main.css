@@ -12,6 +12,10 @@
 	margin-left: 220px;
 }
 
+.bs-example {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .main {
     margin-left: 0;
